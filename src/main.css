@@ -3,7 +3,8 @@
 
 :root {
     --color-main: hsl(355, 74%, 59%);
-    --color-tags-all: hsl(180, 70%, 42%);
+    --color-body: hsl(0, 0%, 96%);
+    --color-tags-all: hsl(44, 84%, 60%);
     --border-radius: 0.4rem;
 }
 
@@ -41,16 +42,33 @@ span {
     user-select: none;
 }
 
+/********************* Animation *********************/
+
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes shrink {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
 /********************* Main container *********************/
 
 .container {
-    /* border: var(--border);
-    border-radius: var(--border-radius); */
     display: grid;
     border-radius: var(--border-radius);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 6fr;
-    /* gap: 1rem; */
     padding: 2rem;
     width: 60%;
     height: 80%;
@@ -58,7 +76,15 @@ span {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
-.header,
+.header {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    gap: 1rem;
+}
+
 .tags {
     position: relative;
     display: flex;
@@ -91,6 +117,7 @@ span {
 } */
 
  .todos {
+    position: relative;
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -122,6 +149,22 @@ span {
     overflow: hidden;
 }
 
+.form-todo {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background-color: var(--color-main);
+    height: 100%;
+}
+
+.form-todo.open {
+    animation: grow 0.2s forwards;
+}
+
+.form-todo.open.closed {
+    animation: shrink 0.2s forwards;
+}
+
+
 .logo-img {
     pointer-events: none;
 }
@@ -130,11 +173,9 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 100%; */
     border-radius: var(--border-radius);
     padding: 0.5rem;
     cursor: pointer;
-    /* aspect-ratio: 1/1; */
     font-size: 1.1rem;
     font-weight: 800;
 }
@@ -151,14 +192,13 @@ span {
     background-color: #EFC044;
     font-size: 1.3rem;
     font-weight: 600;
-    /* width: 100%; */
 }
 
 .todo-item > * {
     position: relative;
     display: flex;
     align-items: center;
-    width: 200px;
+    min-width: 200px;
     height: 100%;
 }
 

@@ -1,8 +1,8 @@
 import './main.css';
 import { todoObject } from './todo-creation';
-import { renderTodo } from './render-todo';
+import { renderTodoList } from './render-todo';
 
-const todoList = [
+export let todoList = [
     {
         'title' : 'morning stretch',
         'description' : 'at least 15 min deep stretch routine',
@@ -12,19 +12,32 @@ const todoList = [
     },
 ];
 
+
+
+let formStatus = 'closed';
+
 (function() {
-
-    // function with sample param to test adding new todos
-
+    const header = document.querySelector('.header');
     const addBtn = document.querySelector('.add-btn');
     addBtn.addEventListener('click', () => {
-        const prova = '';
-        const desc = '';
-        const data = '';
-        const pri = '';
-        const tagga = '';
+        const form = document.createElement('div');
+        form.classList.add('form-todo');
 
-        const todo1 = new todoObject(prova, desc, data, pri, tagga);
-        renderTodo(todo1);
+        if (formStatus == 'closed') {
+            header.appendChild(form);
+            setTimeout(() => {
+                form.classList.add('open');
+                formStatus = 'open';
+            }, 100);
+        }
+        else {
+            const formOpen = document.querySelector('.form-todo');
+            formOpen.classList.add('closed');
+            formStatus = 'closed';
+            setTimeout(() => {
+                formOpen.remove();
+            }, 200);
+        }
     })
+    renderTodoList();
 })();
