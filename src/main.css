@@ -18,7 +18,7 @@
     padding: 0;
 }
 body {
-    line-height: 1.5;
+    /* line-height: 1.5; */
     font-family: 'Rubik', sans-serif;
     -webkit-font-smoothing: antialiased;
     height: 100dvh;
@@ -37,6 +37,10 @@ input, button, textarea, select {
     font: inherit;
 }
 
+span {
+    user-select: none;
+}
+
 /********************* Main container *********************/
 
 .container {
@@ -46,7 +50,7 @@ input, button, textarea, select {
     border-radius: var(--border-radius);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 6fr;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding: 2rem;
     width: 60%;
     height: 80%;
@@ -126,22 +130,78 @@ input, button, textarea, select {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     border-radius: var(--border-radius);
     padding: 0.5rem;
     cursor: pointer;
-    aspect-ratio: 1/1;
+    /* aspect-ratio: 1/1; */
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 800;
 }
 
+
 .todo-item {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     min-height: 50px;
     border-radius: var(--border-radius);
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     background-color: #EFC044;
+    font-size: 1.3rem;
+    font-weight: 600;
     /* width: 100%; */
+}
+
+.todo-item > * {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+}
+
+.flag,
+.delete {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    min-width: 40px;
+    height: 100%;
+}
+
+.flag-icon {
+    cursor: pointer;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: var(--border-radius);
+    border: solid 3px #fff;
+}
+
+.delete-icon {
+    cursor: pointer;
+    position: absolute;
+    color: var(--color-main);
+    margin: auto;
+    transform: rotate(45deg);
+    font-size: 2rem;
+}
+
+.todo-item .title {
+    justify-content: flex-start;
+}
+
+.todo-item .date {
+    justify-content: end;
+}
+
+.edit-text {
+    cursor: pointer;
+    opacity: 50%;
+    position: absolute;
+    left: 50%;
+    width: max-content;
 }

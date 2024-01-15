@@ -1,6 +1,16 @@
 import './main.css';
-import { todoObject } from './todo';
+import { todoObject } from './todo-creation';
 import { renderTodo } from './render-todo';
+
+const todoList = [
+    {
+        'title' : 'morning stretch',
+        'description' : 'at least 15 min deep stretch routine',
+        'date' : 'date',
+        'priority' : 'high',
+        'tag' : 'all'
+    },
+];
 
 (function() {
 
