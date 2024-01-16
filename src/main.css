@@ -3,7 +3,7 @@
 
 :root {
     --color-main: hsl(355, 74%, 59%);
-    --color-body: hsl(0, 0%, 96%);
+    --color-body: hsl(0, 0%, 86%);
     --color-tags-all: hsl(44, 84%, 60%);
     --border-radius: 0.4rem;
 }
@@ -26,7 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F5F5F5;
+    background-color: var(--color-body);
     
 }
 
@@ -129,6 +129,10 @@ span {
     background-color: var(--color-tags-all);
 }
 
+.logo-img {
+    pointer-events: none;
+}
+
 .logo,
 .add-btn {
     min-width: 100px;
@@ -149,25 +153,84 @@ span {
     overflow: hidden;
 }
 
+/* Little animation for the plus sign that becomes the close form button */
+
+.plus {
+    transform: rotate(0deg);
+    transition: all 0.2s ease;
+}
+
+.plus.open {
+    transform: rotate(45deg);
+}
+
+/********************* Form container *********************/
+
 .form-todo {
+    position: absolute;
     overflow: hidden;
+    display: grid;
     border-radius: var(--border-radius);
     background-color: var(--color-main);
-    height: 100%;
+    width: 100%;
+    height: 0px;
+    transition: all 0.2s ease-in;
 }
 
 .form-todo.open {
-    animation: grow 0.2s forwards;
+    height: 400px;
 }
+
+.form-fields {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.form-row {
+    margin-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.form-row.area {
+    grid-column-start: span 3;
+}
+
+input,
+select,
+textarea {
+    outline: none;
+    border: 0;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    width: 100%;
+
+    &::placeholder {
+        opacity: 0.5;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 
 .form-todo.open.closed {
-    animation: shrink 0.2s forwards;
+    height: 0;
 }
 
-
-.logo-img {
-    pointer-events: none;
-}
+/********************* Tags *********************/
 
 .tag-item {
     display: flex;
