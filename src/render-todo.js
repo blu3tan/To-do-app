@@ -31,11 +31,15 @@ function renderTodo(item) {
     deleteIcon.classList.add('delete-icon');
     deleteIcon.textContent = '+';
 
+    const editButton = document.createElement('div');
+    editButton.classList.add('edit-btn');
+    editButton.textContent = 'EDIT';
+
     flag.append(flagIcon);
     title.append(flag, titleText);
     deleteBox.append(deleteIcon);
     date.append(dateText, deleteBox);
-    todoItem.append(title, date);
+    todoItem.append(title, editButton, date);
     const todoContainer = document.querySelector('.todos');
     todoContainer.appendChild(todoItem);
 

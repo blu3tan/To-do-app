@@ -9,6 +9,7 @@
     --border-radius: 0.4rem;
     --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     --box-shadow-pressed: rgba(0, 0, 0, 0.2) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
+    --box-shadow-item: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 /********************* General reset *********************/
@@ -144,6 +145,15 @@ span {
     padding: 1rem;
     background-color: var(--color-main) ;
     aspect-ratio: 1/1;
+    transition: all 0.1s ease-in-out;
+    box-shadow: var(--box-shadow);
+
+    &:hover {
+        background-color: var(--color-main-high);
+    }
+    &:active {
+        box-shadow: var(--box-shadow-pressed);
+    }
 }
 
 .add-btn {
@@ -154,15 +164,7 @@ span {
     font-size: 5rem;
     font-weight: 800;
     overflow: hidden;
-    transition: all 0.1s ease-in-out;
-    box-shadow: var(--box-shadow);
 
-    &:hover {
-        background-color: var(--color-main-high);
-    }
-    &:active {
-        box-shadow: var(--box-shadow-pressed);
-    }
 }
 
 /* Little animation for the plus sign that becomes the close form button */
@@ -285,7 +287,15 @@ label {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 800;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: all 0.1s ease-in-out;
+    box-shadow: var(--box-shadow);
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+    &:active {
+        box-shadow: var(--box-shadow-pressed);
+    }
 }
 
 
@@ -300,13 +310,33 @@ label {
     background-color: #EFC044;
     font-size: 1.3rem;
     font-weight: 600;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        box-shadow: var(--box-shadow-item);
+    }
+
+    &:hover .edit-btn {
+        color: hsla(0, 0%, 100%, 1);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+
+        &:active {
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.1) 0px 1px 1px;
+        }
+    }
 }
 
 .todo-item > * {
     position: relative;
     display: flex;
     align-items: center;
-    min-width: 200px;
+    /* min-width: 200px; */
     height: 100%;
 }
 
@@ -316,17 +346,18 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
     min-width: 40px;
     height: 100%;
 }
 
 .flag-icon {
+    position: absolute;
+    margin: auto;
     cursor: pointer;
-    height: 100%;
+    height: 50%;
     aspect-ratio: 1/1;
     border-radius: var(--border-radius);
-    border: solid 3px #fff;
+    border: solid 2px #fff;
 }
 
 .delete-icon {
@@ -346,10 +377,17 @@ label {
     justify-content: end;
 }
 
-.edit-text {
-    cursor: pointer;
-    opacity: 50%;
+div.edit-btn {
+    user-select: none;
+    color: transparent;
     position: absolute;
-    left: 50%;
+    background-color: inherit;
+    margin-left: 45%;
     width: max-content;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    box-shadow: none;
+    transition: all 0.1s ease-in-out;
+    height: 70%;
 }
