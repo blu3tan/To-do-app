@@ -3,9 +3,12 @@
 
 :root {
     --color-main: hsl(355, 74%, 59%);
+    --color-main-high: hsl(355, 100%, 64%);
     --color-body: hsl(0, 0%, 86%);
     --color-tags-all: hsl(44, 84%, 60%);
     --border-radius: 0.4rem;
+    --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    --box-shadow-pressed: rgba(0, 0, 0, 0.2) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
 }
 
 /********************* General reset *********************/
@@ -139,18 +142,27 @@ span {
     height: 100%;
     border-radius: var(--border-radius);
     padding: 1rem;
-    cursor: pointer;
     background-color: var(--color-main) ;
     aspect-ratio: 1/1;
 }
 
 .add-btn {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
     font-weight: 800;
     overflow: hidden;
+    transition: all 0.1s ease-in-out;
+    box-shadow: var(--box-shadow);
+
+    &:hover {
+        background-color: var(--color-main-high);
+    }
+    &:active {
+        box-shadow: var(--box-shadow-pressed);
+    }
 }
 
 /* Little animation for the plus sign that becomes the close form button */
@@ -174,11 +186,11 @@ span {
     background-color: var(--color-main);
     width: 100%;
     height: 0px;
-    transition: all 0.2s ease-in;
+    transition: height 0.2s ease-in;
 }
 
 .form-todo.open {
-    height: 400px;
+    height: 350px;
 }
 
 .form-fields {
@@ -186,6 +198,14 @@ span {
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+}
+
+.form-fields:first-child {
+    margin-top: 1rem;
+}
+
+.form-fields:last-child {
+    margin-bottom: 1rem;
 }
 
 .form-row {
@@ -203,7 +223,8 @@ span {
 
 input,
 select,
-textarea {
+textarea,
+button {
     outline: none;
     border: 0;
     border-radius: var(--border-radius);
@@ -224,7 +245,30 @@ label {
     font-size: 1.2rem;
     font-weight: 600;
 }
+.todoLabel {
+    color: var(--color-main);
+}
 
+.set-btn-txt {
+    color: #fff;
+    pointer-events: none;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.set-btn {
+    cursor: pointer;
+    background-color: var(--color-main);
+    box-shadow: var(--box-shadow);
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+        background-color: var(--color-main-high);
+    }
+    &:active {
+        box-shadow: var(--box-shadow-pressed);
+    }
+}
 
 .form-todo.open.closed {
     height: 0;
@@ -241,6 +285,7 @@ label {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 800;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 
