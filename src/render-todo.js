@@ -1,14 +1,5 @@
-import { todoList } from "./index";
 
-export function renderTodoList() {
-
-        todoList.forEach(item => {
-            renderTodo(item);
-        });
-
-}
-
-function renderTodo(item) {
+export function renderTodo(item) {
 
     const todoItem = document.createElement('div');
     todoItem.classList.add('todo-item');

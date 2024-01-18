@@ -1,5 +1,5 @@
 import './main.css';
-import { renderTodoList } from './render-todo';
+import { renderTodo } from './render-todo';
 import { todoFormCreation } from './todo-form-creation';
 
 export let todoList = [
@@ -11,6 +11,14 @@ export let todoList = [
         'tag' : 'all'
     },
 ];
+
+function renderTodoList() {
+
+    todoList.forEach(item => {
+        renderTodo(item);
+    });
+
+}
 
 (function() {
 
