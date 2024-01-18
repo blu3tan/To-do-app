@@ -1,8 +1,19 @@
+import { todoRemove } from "./todo-creation";
+import { renderTodoList } from "./index";
+import { todoList } from "./index";
 
-export function renderTodo(item) {
+function clearList(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+};
 
+export function renderTodo(item, index) {
+
+    const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');
-    todoItem.classList.add('todo-item');
+    todoItem.classList.add('todo-item', 'show');
+    todoItem.setAttribute('data-index', index);
 
     const title = document.createElement('div');
     title.classList.add('title');
@@ -22,6 +33,15 @@ export function renderTodo(item) {
     deleteIcon.classList.add('delete-icon');
     deleteIcon.textContent = '+';
 
+    deleteBox.addEventListener('click', () => {
+        const index = todoItem.dataset;
+        todoRemove(index);
+        todoItem.remove();
+        clearList(todoContainer);
+        renderTodoList();
+
+    })
+
     const editButton = document.createElement('div');
     editButton.classList.add('edit-btn');
     editButton.textContent = 'EDIT';
@@ -31,7 +51,6 @@ export function renderTodo(item) {
     deleteBox.append(deleteIcon);
     date.append(dateText, deleteBox);
     todoItem.append(title, editButton, date);
-    const todoContainer = document.querySelector('.todos');
     todoContainer.appendChild(todoItem);
 
 
