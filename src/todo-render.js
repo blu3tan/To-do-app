@@ -1,6 +1,7 @@
 import { todoRemove } from "./index";
 import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
+import { todoEditForm } from "./todo-edit-form";
 import { todoEdit } from "./todo-edit";
 
 
@@ -56,7 +57,8 @@ export function renderTodo(item, index, color) {
     editButton.textContent = 'EDIT';
 
     editButton.addEventListener('click', () => {
-        todoEdit();
+        todoEditForm(index);
+        todoEdit(index);
     })
 
     flag.append(flagIcon);

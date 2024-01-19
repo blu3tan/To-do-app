@@ -9,7 +9,6 @@ export {todoList}
 
 export function todoRemove(index) {
     todoList.splice((index.index), 1);
-    console.log(todoList);
 }
 
 export function renderTodoList() {
@@ -24,6 +23,7 @@ export function renderTodoList() {
     const addBtn = document.querySelector('.add-btn');
     addBtn.addEventListener('click', () => {
         todoFormCreation();
+
     });
 
     // const logo = document.querySelector('logo');
