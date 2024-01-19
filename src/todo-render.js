@@ -26,6 +26,12 @@ export function renderTodo(item, index) {
     const deleteIcon = document.createElement('div');
     deleteIcon.classList.add('delete-icon');
     deleteIcon.textContent = '+';
+    const stroke = document.createElement('div');
+    stroke.classList.add('stroke');
+
+    flagIcon.addEventListener('click', () => {
+        stroke.classList.toggle('visible');
+    })
 
     deleteBox.addEventListener('click', () => {
         const index = todoItem.dataset;
@@ -33,11 +39,11 @@ export function renderTodo(item, index) {
         todoItem.setAttribute('hide', '');
         setTimeout(() => {
             todoItem.remove();
-        }, 450)
+        }, 350)
         setTimeout(() => {
             clearList(todoContainer);
             renderTodoList();
-        }, 500)
+        }, 400)
     })
 
     const editButton = document.createElement('div');
@@ -52,6 +58,6 @@ export function renderTodo(item, index) {
     title.append(flag, titleText);
     deleteBox.append(deleteIcon);
     date.append(dateText, deleteBox);
-    todoItem.append(title, editButton, date);
+    todoItem.append(title, editButton, date, stroke);
     todoContainer.appendChild(todoItem);
 }
