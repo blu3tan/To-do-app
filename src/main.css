@@ -104,6 +104,10 @@ span {
 
 }
 
+.add-btn.prevent {
+    pointer-events: none;
+}
+
 /* Little animation for the plus sign that becomes the close form button */
 
 .plus {
@@ -174,7 +178,7 @@ span {
 
  /********************* Todo container *********************/
 
- .todos {
+.todos {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -184,7 +188,33 @@ span {
     overflow-y: scroll;
 }
 
- .todo-item {
+div.edit-btn {
+    user-select: none;
+    color: hsla(0, 0%, 100%, 1);
+    position: absolute;
+    background-color: inherit;
+    cursor: pointer;
+    margin-left: 45%;
+    width: max-content;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    height: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+
+
+}
+
+.edit-btn.hide {
+    opacity: 0;   
+}
+
+.todo-item {
     z-index: 2;
     position: relative;
     overflow: hidden;
@@ -194,7 +224,6 @@ span {
     height: 55px;
     border-radius: var(--border-radius);
     padding-block: 0.5rem;
-    background-color: #EFC044;
     font-size: 1.3rem;
     font-weight: 600;
     box-shadow: none;
@@ -205,18 +234,13 @@ span {
     }
 
     &:hover .edit-btn {
-        color: hsla(0, 0%, 100%, 1);
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        cursor: pointer;
-
-        &:hover {
-            filter: brightness(1.1);
-        }
-
+        transform: scale(1.1);
+        /* transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out; */
         &:active {
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.1) 0px 1px 1px;
         }
     }
+
 }
 
 .todo-item[hide]:not(:last-of-type) {
@@ -283,7 +307,7 @@ span {
 .delete-icon {
     position: absolute;
     z-index: 6;
-    color: var(--color-main);
+    /* color: var(--color-main); */
     margin-right: 1rem;
     transform: rotate(45deg);
     font-size: 2.5rem;
@@ -300,22 +324,6 @@ span {
 
 .todo-item .date {
     justify-content: end;
-}
-
-div.edit-btn {
-    user-select: none;
-    color: transparent;
-    position: absolute;
-    background-color: inherit;
-    margin-left: 45%;
-    width: max-content;
-    justify-content: center;
-    border-radius: var(--border-radius);
-    padding: 0.5rem;
-    box-shadow: none;
-    /* font-size: 1rem; */
-    transition: all 0.1s ease-in-out;
-    height: 50%;
 }
 
 /********************* Form container *********************/

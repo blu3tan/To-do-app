@@ -3,6 +3,7 @@ import {todoList} from "./index";
 import { renderTodo } from "./todo-render";
 import { tagColors } from "./tags-colors";
 import { randomHsl } from "./random-color";
+let bgColor;
 
 export function todoCreation() {
     // extract input from the form element
@@ -17,22 +18,20 @@ export function todoCreation() {
 
     let todoItem = new todoObject(title, description, dueDate, priority, tags)
     todoList.push(todoItem);
-    console.log(todoItem);
-    console.log(tagColors);
     const index = todoList.indexOf(todoItem);
-    renderTodo(todoItem, index, color);
+    renderTodo(todoItem, index, bgColor);
     todoItem = {};
 }
 
-let color;
+//helper module functions 
 
 function tagColorLogic() {
      if (tags.value in tagColors) {
-        color = tagColors[tags.value];
+        bgColor = tagColors[tags.value];
     }
     else {
         tagColors[tags.value] = randomHsl();
-        color = tagColors[tags.value];
+        bgColor = tagColors[tags.value];
     }
 
 }

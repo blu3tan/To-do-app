@@ -1,6 +1,7 @@
 import { todoRemove } from "./index";
 import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
+import { todoEdit } from "./todo-edit";
 
 
 export function renderTodo(item, index, color) {
@@ -9,6 +10,7 @@ export function renderTodo(item, index, color) {
     const todoItem = document.createElement('div');
     todoItem.classList.add('todo-item');
     todoItem.setAttribute('data-index', index);
+    todoItem.style.setProperty('background-color', color);
 
     const title = document.createElement('div');
     title.classList.add('title');
@@ -31,7 +33,9 @@ export function renderTodo(item, index, color) {
     stroke.classList.add('stroke');
 
     flagIcon.addEventListener('click', () => {
+        const editBtn = document.querySelector('.edit-btn');
         stroke.classList.toggle('visible');
+        editBtn.classList.toggle('hide');
     })
 
     deleteBox.addEventListener('click', () => {
@@ -52,7 +56,7 @@ export function renderTodo(item, index, color) {
     editButton.textContent = 'EDIT';
 
     editButton.addEventListener('click', () => {
-        
+        todoEdit();
     })
 
     flag.append(flagIcon);
