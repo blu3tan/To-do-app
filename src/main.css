@@ -48,22 +48,8 @@ span {
 
 /********************* Animation *********************/
 
-@keyframes grow {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes shrink {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 0;
-    }
+@keyframes remove {
+    100% {display: none;}
 }
 
 /********************* Main container *********************/
@@ -302,18 +288,20 @@ label {
 
 
 .todo-item {
+    z-index: 2;
     position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 50px;
+    height: 55px;
     border-radius: var(--border-radius);
     padding: 0.5rem 1rem;
     background-color: #EFC044;
     font-size: 1.3rem;
     font-weight: 600;
     box-shadow: none;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     &:hover {
         box-shadow: var(--box-shadow-item);
@@ -332,6 +320,15 @@ label {
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.1) 0px 1px 1px;
         }
     }
+}
+
+.todo-item[hide]:not(:last-of-type) {
+    margin-bottom: calc(-55px - 1rem);
+}
+
+.todo-item[hide]:last-of-type {
+    z-index: 1;
+    margin-top: calc(-55px - 1rem);
 }
 
 .todo-item > * {

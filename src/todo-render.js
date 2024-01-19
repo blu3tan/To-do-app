@@ -1,18 +1,12 @@
-import { todoRemove } from "./todo-creation";
+import { todoRemove } from "./index";
 import { renderTodoList } from "./index";
-import { todoList } from "./index";
-
-function clearList(element) {
-    while (element.firstChild) {
-        element.removeChild(element.firstChild);
-    }
-};
+import { clearList } from "./clear-list";
 
 export function renderTodo(item, index) {
 
     const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');
-    todoItem.classList.add('todo-item', 'show');
+    todoItem.classList.add('todo-item');
     todoItem.setAttribute('data-index', index);
 
     const title = document.createElement('div');
@@ -26,7 +20,7 @@ export function renderTodo(item, index) {
     const date = document.createElement('div');
     date.classList.add('date');
     const dateText = document.createElement('span');
-    dateText.textContent = item.date;
+    dateText.textContent = item.dueDate;
     const deleteBox = document.createElement('div');
     deleteBox.classList.add('delete');
     const deleteIcon = document.createElement('div');
@@ -36,15 +30,23 @@ export function renderTodo(item, index) {
     deleteBox.addEventListener('click', () => {
         const index = todoItem.dataset;
         todoRemove(index);
-        todoItem.remove();
-        clearList(todoContainer);
-        renderTodoList();
-
+        todoItem.setAttribute('hide', '');
+        setTimeout(() => {
+            todoItem.remove();
+        }, 450)
+        setTimeout(() => {
+            clearList(todoContainer);
+            renderTodoList();
+        }, 500)
     })
 
     const editButton = document.createElement('div');
     editButton.classList.add('edit-btn');
     editButton.textContent = 'EDIT';
+
+    editButton.addEventListener('click', () => {
+        todoItem.setAttribute('hide', '');
+    })
 
     flag.append(flagIcon);
     title.append(flag, titleText);
@@ -52,11 +54,4 @@ export function renderTodo(item, index) {
     date.append(dateText, deleteBox);
     todoItem.append(title, editButton, date);
     todoContainer.appendChild(todoItem);
-
-
-
 }
-
-// function randomHsl() {
-//     return 'hsl(' + (Math.floor(Math.random() * 360)) + ', 70%, 42%)';
-// };
