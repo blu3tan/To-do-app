@@ -2,7 +2,8 @@ import { todoRemove } from "./index";
 import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
 
-export function renderTodo(item, index) {
+
+export function renderTodo(item, index, color) {
 
     const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');
@@ -51,7 +52,7 @@ export function renderTodo(item, index) {
     editButton.textContent = 'EDIT';
 
     editButton.addEventListener('click', () => {
-        todoItem.setAttribute('hide', '');
+        
     })
 
     flag.append(flagIcon);

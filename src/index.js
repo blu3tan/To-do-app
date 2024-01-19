@@ -1,6 +1,7 @@
 import './main.css';
 import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
+import { tagColors } from './tags-colors';
 
 let todoList = [];
 
@@ -14,7 +15,8 @@ export function todoRemove(index) {
 export function renderTodoList() {
     todoList.forEach(item => {
         let index = todoList.indexOf(item);
-        renderTodo(item, index);
+        let color = tagColors[item.tag];
+        renderTodo(item, index, color);
     });
 }
 

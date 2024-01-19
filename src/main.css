@@ -264,17 +264,6 @@ span {
     }
 }
 
-/* .flag-icon::before {
-    content: '';
-    height: 20px;
-    width: 500px;
-    border-radius: var(--border-radius);
-    background-color: #000;
-    position: absolute;
-    z-index: 5;
-    margin: auto;
-} */
-
 .stroke {
     position: absolute;
     width: 0px;
@@ -297,7 +286,12 @@ span {
     color: var(--color-main);
     margin-right: 1rem;
     transform: rotate(45deg);
-    font-size: 2rem;
+    font-size: 2.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        font-size: 3.5rem;
+    }
 }
 
 .todo-item .title {

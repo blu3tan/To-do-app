@@ -14,7 +14,7 @@ export function todoFormCreation() {
     <div class="form-row"><label for="priority">Priority</label><select id="priority" name="priority"><option value="low">Low</option><option value="med">Med</option><option value="high">High</option></select></div>
     <div class="form-row area"><label for="description">How?</label>
     <textarea id="description" name="description" maxlength="200"></textarea></div>
-    <div class="form-row"><label for="tags">Tag</label><select id="tags" name="tags"><option value="all">All</option><option value="work">Work</option><option value="sport">Sport</option></select></div><div class="form-row"><label for="todoBtn" class="todoLabel">_</label><button id="set-todo" type="submit" class="set-btn" name="todoBtn">
+    <div class="form-row"><label for="tags">Tag</label><input id="tags" name="tags" type="text" maxlength="10" placeholder="All" value="all"></div><div class="form-row"><label for="todoBtn" class="todoLabel">_</label><button id="set-todo" type="submit" class="set-btn" name="todoBtn">
     <span class="set-btn-txt">SET&nbsp;&nbsp;TODO</span></button></div></form>`
 
     
