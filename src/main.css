@@ -252,7 +252,9 @@ div.edit-btn {
     margin-top: calc(-55px - 1rem);
 }
 
-.todo-item > * {
+.title,
+.edit-btn,
+.date {
     position: relative;
     display: flex;
     gap: 1rem;
