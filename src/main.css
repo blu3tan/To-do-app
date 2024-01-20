@@ -130,13 +130,14 @@ span {
     gap: 1rem;
 }
 
-.tags :first-child {
+#generic {
     background-color: var(--color-tags-all);
 }
 
 .tag-item {
     display: flex;
     justify-content: center;
+    user-select: none;
     align-items: center;
     border-radius: var(--border-radius);
     padding: 0.5rem;

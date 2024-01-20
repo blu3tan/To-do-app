@@ -4,14 +4,14 @@ import { closeForm } from './todo-form-close'
 import { status } from './form-status';
 import { todoEdit } from "./todo-edit";
 import { renderTodo } from "./todo-render";
-import { tagColors } from "./tags-colors";
+
 
 let indexOut;
 
 export function todoEditForm(index) {
     indexOut = index;
     const todoObject = todoList[index];
-    const bgColor = tagColors[todoObject.tag];
+    // const bgColor = tagColors[todoObject.tag];
     const todoDomItem = document.querySelector(`.todo-item[data-index = '${index}' ]`);
 
     const todoContainer = document.querySelector('.todos');
@@ -30,7 +30,6 @@ export function todoEditForm(index) {
         formSubmit.addEventListener('submit', () => {
             todoEdit(index);
             todoDomItem.remove();
-            console.log(bgColor);
             renderTodo(todoObject, index);
             closeForm();
             addBtn.classList.toggle('prevent');
