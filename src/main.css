@@ -9,7 +9,7 @@
     --border-radius: 0.4rem;
     --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     --box-shadow-pressed: rgba(0, 0, 0, 0.2) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
-    --box-shadow-item: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    --box-shadow-item: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 /********************* General reset *********************/
@@ -187,6 +187,7 @@ span {
     color: #fff;
     gap: 1rem;
     overflow-y: scroll;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(206, 206, 206, 0.3) -3px -3px 6px 1px inset;
 }
 
 div.edit-btn {
@@ -228,6 +229,7 @@ div.edit-btn {
     font-size: 1.3rem;
     font-weight: 600;
     box-shadow: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     transition: margin 0.3s ease-in-out, box-shadow 0.2s ease-in-out, filter 0.2s ease-in-out;
 
     &:hover {
@@ -289,6 +291,10 @@ div.edit-btn {
     &:hover {
         background-color: #fff;
     }
+}
+
+.flag-icon.checked {
+    background-color: #fff;
 }
 
 .stroke {

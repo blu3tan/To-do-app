@@ -16,7 +16,6 @@ export function refreshTags() {
 };
 
 function tagRender(item) {
-    console.log(item);
     const bgColor = tagColors[item]
     const text = `#${item}`;
     const tagItem = document.createElement('div');

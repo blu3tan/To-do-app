@@ -34,10 +34,10 @@ export function renderTodo(item, index) {
     const stroke = document.createElement('div');
     stroke.classList.add('stroke');
 
-    flagIcon.addEventListener('click', () => {
-        const editBtn = document.querySelector('.edit-btn');
+    flagIcon.addEventListener('click', () => {  
         stroke.classList.toggle('visible');
-        editBtn.classList.toggle('hide');
+        editButton.classList.toggle('hide');
+        flagIcon.classList.toggle('checked');
     })
 
     deleteBox.addEventListener('click', () => {

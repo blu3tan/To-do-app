@@ -25,7 +25,7 @@ export function todoEditForm(index) {
         fillFormFromArray();
 
         const setBtn = document.querySelector('.set-btn-txt');
-        setBtn.textContent = `EDIT  TODO`;
+        setBtn.textContent = 'SAVE';
         const formSubmit = document.getElementById('form-submit');
         formSubmit.addEventListener('submit', () => {
             todoEdit(index);

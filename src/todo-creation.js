@@ -38,5 +38,4 @@ function tagColorLogic() {
 function tagItemLogic() {
     if (tagList.includes(tags.value)) return;
     else tagList.push(tags.value);
-    console.log(tagList);
 }
