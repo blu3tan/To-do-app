@@ -3,15 +3,16 @@ import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
 import { todoEdit } from "./todo-edit";
+import { tagColors } from "./tags-colors";
 
 
-export function renderTodo(item, index, color) {
-
+export function renderTodo(item, index) {
+    const bgColor = tagColors[item.tag];
     const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');
     todoItem.classList.add('todo-item');
     todoItem.setAttribute('data-index', index);
-    todoItem.style.setProperty('background-color', color);
+    todoItem.style.setProperty('background-color', bgColor);
 
     const title = document.createElement('div');
     title.classList.add('title');

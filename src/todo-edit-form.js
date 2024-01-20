@@ -1,16 +1,19 @@
-import { todoObject } from "./todo-class";
 import {todoList} from "./index";
-import { renderTodo } from "./todo-render";
-import { tagColors } from "./tags-colors";
-import { randomHsl } from "./random-color";
 import { formStructure } from "./todo-form-creation";
 import { closeForm } from './todo-form-close'
 import { status } from './form-status';
+import { todoEdit } from "./todo-edit";
+import { renderTodo } from "./todo-render";
+import { tagColors } from "./tags-colors";
 
 let indexOut;
 
 export function todoEditForm(index) {
     indexOut = index;
+    const todoObject = todoList[index];
+    const bgColor = tagColors[todoObject.tag];
+    const todoDomItem = document.querySelector(`.todo-item[data-index = '${index}' ]`);
+
     const todoContainer = document.querySelector('.todos');
     const addBtn = document.querySelector('.add-btn');
     addBtn.classList.toggle('prevent');
@@ -25,6 +28,10 @@ export function todoEditForm(index) {
         setBtn.textContent = `EDIT  TODO`;
         const formSubmit = document.getElementById('form-submit');
         formSubmit.addEventListener('submit', () => {
+            todoEdit(index);
+            todoDomItem.remove();
+            console.log(bgColor);
+            renderTodo(todoObject, index);
             closeForm();
             addBtn.classList.toggle('prevent');
         })
