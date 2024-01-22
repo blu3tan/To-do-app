@@ -34,33 +34,9 @@ export function renderTodo(item, index) {
     const stroke = document.createElement('div');
     stroke.classList.add('stroke');
 
-    flagIcon.addEventListener('click', () => {  
-        stroke.classList.toggle('visible');
-        editButton.classList.toggle('hide');
-        flagIcon.classList.toggle('checked');
-    })
-
-    deleteBox.addEventListener('click', () => {
-        const index = todoItem.dataset;
-        todoRemove(index);
-        todoItem.setAttribute('hide', '');
-        setTimeout(() => {
-            todoItem.remove();
-        }, 350)
-        setTimeout(() => {
-            clearList(todoContainer);
-            renderTodoList();
-        }, 400)
-    })
-
     const editButton = document.createElement('div');
     editButton.classList.add('edit-btn');
     editButton.textContent = 'EDIT';
-
-    editButton.addEventListener('click', () => {
-        todoEditForm(index);
-        todoEdit(index);
-    })
 
     flag.append(flagIcon);
     title.append(flag, titleText);
@@ -68,4 +44,29 @@ export function renderTodo(item, index) {
     date.append(dateText, deleteBox);
     todoItem.append(title, editButton, date, stroke);
     todoContainer.appendChild(todoItem);
+
+    todoItem.addEventListener('click', (e)=> {
+        console.log(e.target);
+        if (e.target.matches('.flag-icon')) {
+            stroke.classList.toggle('visible');
+            editButton.classList.toggle('hide');
+            flagIcon.classList.toggle('checked');
+        }
+        else if (e.target.matches('.delete')) {
+            const index = todoItem.dataset;
+            todoRemove(index);
+            todoItem.setAttribute('hide', '');
+            setTimeout(() => {
+                todoItem.remove();
+            }, 350)
+            setTimeout(() => {
+                clearList(todoContainer);
+                renderTodoList();
+            }, 400)
+        }
+        else if (e.target.matches('.edit-btn')) {
+            todoEditForm(index);
+            todoEdit(index);
+        }
+    })
 }

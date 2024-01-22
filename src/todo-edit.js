@@ -14,6 +14,4 @@ export function todoEdit(index) {
     object.description = description.value;
     object.tag = tags.value; 
 
-    console.log(todoList);
-
 }
