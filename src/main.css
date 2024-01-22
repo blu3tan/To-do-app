@@ -124,10 +124,12 @@ span {
 .tags {
     position: relative;
     display: flex;
+    /* overflow-x: auto; */
     justify-content: flex-start;
     align-items: center;
     color: #fff;
     gap: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 #generic {
@@ -154,6 +156,10 @@ span {
         box-shadow: var(--box-shadow-pressed);
     }
 }
+
+/* .tag-item:first-of-type {
+    margin-left: 1rem;
+} */
 
 /* .header::after {
     content: '';
@@ -223,9 +229,10 @@ div.edit-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 55px;
+    min-height: 55px;
     border-radius: var(--border-radius);
     padding-block: 0.5rem;
+    /* margin-inline: 1rem; */
     font-size: 1.3rem;
     font-weight: 600;
     box-shadow: none;
