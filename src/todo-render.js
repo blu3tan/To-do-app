@@ -3,7 +3,7 @@ import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
 import { todoEdit } from "./todo-edit";
-import { tagColors } from "./tags-colors";
+import { tagColors } from "./tag-creation";
 
 
 export function renderTodo(item, index) {
@@ -46,7 +46,6 @@ export function renderTodo(item, index) {
     todoContainer.appendChild(todoItem);
 
     todoItem.addEventListener('click', (e)=> {
-        console.log(e.target);
         if (e.target.matches('.flag-icon')) {
             stroke.classList.toggle('visible');
             editButton.classList.toggle('hide');

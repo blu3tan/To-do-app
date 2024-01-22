@@ -1,7 +1,7 @@
 import { todoObject } from "./todo-class";
 import {todoList} from "./index";
 import { renderTodo } from "./todo-render";
-import { tagColors } from "./tags-colors";
+import { tagColors } from "./tag-creation";
 import { randomHsl } from "./random-color";
 import { tagList, refreshTags } from "./tag-creation";
 

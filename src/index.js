@@ -1,7 +1,7 @@
 import './main.css';
 import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
-import { refreshTags, renderTagList } from './tag-creation';
+import { refreshTags } from './tag-creation';
 
 let todoList = [];
 
