@@ -1,4 +1,5 @@
 import { clearList } from "./clear-list";
+import { todoList } from "./index";
 
 export const tagList = ['generic'];
 
@@ -23,6 +24,24 @@ export function refreshTags() {
     clearList(tagContainer);
     renderTagList();
 };
+
+export function tagRemove() {
+    tagList.forEach(tag => {
+        if (tag == 'generic') return;
+        else {
+        let tagPresence = todoList.find((obj) => obj.tag == tag)
+        if (tagPresence == undefined) {
+            let index = tagList.indexOf(tag);
+            tagList.splice((index), 1);
+            const tagItem = document.querySelector(`#${tag}`);
+            tagItem.setAttribute('hide', '');
+            }
+        }
+    })
+    setTimeout(() => {
+        refreshTags();
+    }, 300)
+}
 
 function tagRender(item) {
     const bgColor = tagColors[item]

@@ -137,6 +137,9 @@ span {
 }
 
 .tag-item {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     user-select: none;
@@ -148,6 +151,7 @@ span {
     font-weight: 800;
     transition: all 0.1s ease-in-out;
     box-shadow: var(--box-shadow);
+    transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out;
 
     &:hover {
         filter: brightness(1.1);
@@ -157,9 +161,12 @@ span {
     }
 }
 
-/* .tag-item:first-of-type {
-    margin-left: 1rem;
-} */
+.tag-item[hide] {
+    position: relative;
+    z-index: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+}
 
 /* .header::after {
     content: '';
@@ -232,7 +239,6 @@ div.edit-btn {
     min-height: 55px;
     border-radius: var(--border-radius);
     padding-block: 0.5rem;
-    /* margin-inline: 1rem; */
     font-size: 1.3rem;
     font-weight: 600;
     box-shadow: none;

@@ -3,7 +3,7 @@ import { renderTodoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
 import { todoEdit } from "./todo-edit";
-import { tagColors } from "./tag-creation";
+import { tagColors, tagRemove } from "./tag-creation";
 
 
 export function renderTodo(item, index) {
@@ -57,6 +57,7 @@ export function renderTodo(item, index) {
             todoItem.setAttribute('hide', '');
             setTimeout(() => {
                 todoItem.remove();
+                tagRemove();
             }, 350)
             setTimeout(() => {
                 clearList(todoContainer);
