@@ -4,7 +4,7 @@
 :root {
     --color-main: hsl(355, 74%, 59%);
     --color-main-high: hsl(355, 100%, 64%);
-    --color-body: hsl(0, 0%, 86%);
+    --color-body: hsl(0, 0%, 65%);
     --color-tags-all: hsl(44, 84%, 60%);
     --border-radius: 0.4rem;
     --box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -339,7 +339,7 @@ div.edit-btn {
     overflow: hidden;
     display: grid;
     border-radius: var(--border-radius);
-    background-color: var(--color-main);
+    /* background-color: var(--color-main); */
     width: 100%;
     height: 0%;
     transition: height 0.2s ease-in;
@@ -403,7 +403,7 @@ label {
 }
 
 .todoLabel {
-    color: var(--color-main);
+    opacity: 0;
 }
 
 .set-btn-txt {

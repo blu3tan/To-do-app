@@ -7,7 +7,7 @@ import { format } from "date-fns";
 
 export function renderTodo(item, index) {
 
-    const dateFormatted = format(item.dueDate, `MMM - d`);
+    const dateFormatted = format(item.dueDate, `MMM d`);
     const bgColor = tagColors[item.tag];
     const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');

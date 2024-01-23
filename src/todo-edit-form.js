@@ -4,6 +4,7 @@ import { closeForm } from './todo-form-close'
 import { status } from './form-status';
 import { todoEdit } from "./todo-edit";
 import { renderTodo } from "./todo-render";
+import { tagColors } from "./tag-creation";
 
 
 let indexOut;
@@ -11,13 +12,14 @@ let indexOut;
 export function todoEditForm(index) {
     indexOut = index;
     const todoObject = todoList[index];
-    // const bgColor = tagColors[todoObject.tag];
+    const bgColor = tagColors[todoObject.tag];
     const todoDomItem = document.querySelector(`.todo-item[data-index = '${index}' ]`);
     const tagContainer = document.querySelector('.tags');
     const todoContainer = document.querySelector('.todos');
     const addBtn = document.querySelector('.add-btn');
     addBtn.classList.toggle('prevent');
     const editForm = formStructure();
+    editForm.style.setProperty('background-color', bgColor);
 
     if (status.formStatus == 'closed') {
         todoContainer.appendChild(editForm);
@@ -52,6 +54,8 @@ function fillFormFromArray() {
     const priority = document.getElementById('priority');
     const description = document.getElementById('description');
     const tags = document.getElementById('tags');
+
+    console.log(object.dueDate);
 
     title.value = object.title;
     dueDate.value = object.dueDate;

@@ -4,6 +4,7 @@ import { renderTodo } from "./todo-render";
 import { tagColors } from "./tag-creation";
 import { randomHsl } from "./random-color";
 import { tagList, refreshTags } from "./tag-creation";
+import { format } from "date-fns"
 
 export function todoCreation() {
     // extract input from the form element
@@ -15,7 +16,7 @@ export function todoCreation() {
     
     if (dueDate == '') {
         let today = new Date();
-        dueDate = today;
+        dueDate = format(today, 'yyyy-MM-dd');
     }
     // checkTag();
     tagColorLogic();

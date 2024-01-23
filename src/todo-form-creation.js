@@ -43,6 +43,7 @@ export function formStructure() {
 
     const form = document.createElement('div');
     form.classList.add('form-todo');
+    form.style.setProperty('background-color', 'hsl(355, 74%, 59%)');
     form.innerHTML = formMarkup;
 
     return form;
