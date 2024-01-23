@@ -2,9 +2,12 @@ import { todoRemove, renderTodoList, todoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
 import { tagColors, tagRemove, refreshTags } from "./tag-creation";
+import { format } from "date-fns";
 
 
 export function renderTodo(item, index) {
+
+    const dateFormatted = format(item.dueDate, `MMM - d`);
     const bgColor = tagColors[item.tag];
     const todoContainer = document.querySelector('.todos');
     const todoItem = document.createElement('div');
@@ -23,7 +26,7 @@ export function renderTodo(item, index) {
     const date = document.createElement('div');
     date.classList.add('date');
     const dateText = document.createElement('span');
-    dateText.textContent = item.dueDate;
+    dateText.textContent = dateFormatted;
     const deleteBox = document.createElement('div');
     deleteBox.classList.add('delete');
     const deleteIcon = document.createElement('div');

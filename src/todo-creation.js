@@ -8,11 +8,15 @@ import { tagList, refreshTags } from "./tag-creation";
 export function todoCreation() {
     // extract input from the form element
     const title = document.getElementById('title').value;
-    const dueDate = document.getElementById('date').value;
+    let dueDate = document.getElementById('date').value;
     const priority = document.getElementById('priority').value;
     const description = document.getElementById('description').value;
     const tags = document.getElementById('tags').value;
     
+    if (dueDate == '') {
+        let today = new Date();
+        dueDate = today;
+    }
     // checkTag();
     tagColorLogic();
     tagItemLogic();
