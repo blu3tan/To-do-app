@@ -1,7 +1,6 @@
 import { todoRemove, renderTodoList, todoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
-import { todoEdit } from "./todo-edit";
 import { tagColors, tagRemove, refreshTags } from "./tag-creation";
 
 
@@ -44,6 +43,7 @@ export function renderTodo(item, index) {
     todoItem.append(title, editButton, date, stroke);
     todoContainer.appendChild(todoItem);
 
+    const tagContainer = document.querySelector('.tags');
     todoItem.addEventListener('click', (e)=> {
         if (e.target.matches('.flag-icon')) {
             stroke.classList.toggle('visible');
@@ -66,7 +66,7 @@ export function renderTodo(item, index) {
         }
         else if (e.target.matches('.edit-btn')) {
             todoEditForm(index);
-            todoEdit(index);
+            tagContainer.classList.toggle('block');
         }
     })
 }

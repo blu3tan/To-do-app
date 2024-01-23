@@ -13,12 +13,11 @@ export function todoEditForm(index) {
     const todoObject = todoList[index];
     // const bgColor = tagColors[todoObject.tag];
     const todoDomItem = document.querySelector(`.todo-item[data-index = '${index}' ]`);
-
+    const tagContainer = document.querySelector('.tags');
     const todoContainer = document.querySelector('.todos');
     const addBtn = document.querySelector('.add-btn');
     addBtn.classList.toggle('prevent');
     const editForm = formStructure();
-
 
     if (status.formStatus == 'closed') {
         todoContainer.appendChild(editForm);
@@ -32,6 +31,7 @@ export function todoEditForm(index) {
             todoDomItem.remove();
             renderTodo(todoObject, index);
             closeForm();
+            tagContainer.classList.toggle('block');
             addBtn.classList.toggle('prevent');
         })
         setTimeout(() => {

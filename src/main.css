@@ -132,9 +132,9 @@ span {
     /* margin-bottom: 1rem; */
 }
 
-/* #generic {
-    background-color: var(--color-tags-all);
-} */
+.tags.block {
+    pointer-events: none;
+}
 
 .tag-item {
     position: relative;
@@ -169,7 +169,7 @@ span {
 }
 .tag-item.pressed {
     box-shadow: var(--box-shadow-pressed);
-    filter: brightness(1.2);
+    /* filter: brightness(1.2); */
 }
 
  /********************* Todo container *********************/

@@ -7,6 +7,7 @@ const todoContainer = document.querySelector('.todos');
 
 
 export function todoFormCreation() {
+    const tagContainer = document.querySelector('.tags');
     const addForm = formStructure();
     if (status.formStatus == 'closed') {
         todoContainer.appendChild(addForm);
@@ -14,6 +15,7 @@ export function todoFormCreation() {
         formSubmit.addEventListener('submit', () => {
             todoCreation();
             closeForm();
+            tagContainer.classList.toggle('block');
         })
         setTimeout(() => {
             plus.classList.add('open');
