@@ -1,13 +1,13 @@
 import { clearList } from "./clear-list";
 import { todoList } from "./index";
 
-let activeTag = 'generic';
+let activeTag = 'all';
 export { activeTag }
 
-export const tagList = ['generic'];
+export const tagList = ['all'];
 
 let tagColors = {
-    'generic': 'hsl(44, 84%, 50%)',
+    'all': 'hsl(44, 84%, 50%)',
     'sport': 'hsl(180, 70%, 42%)',
     'work': 'hsl(262, 41%, 40%)',
     'relax': 'hsl(203, 83%, 33%)',
@@ -44,7 +44,7 @@ export function refreshTags() {
 
 export function tagRemove() {
     tagList.forEach(tag => {
-        if (tag == 'generic') return;
+        if (tag == 'all') return;
         else {
         let tagPresence = todoList.find((obj) => obj.tag == tag)
         if (tagPresence == undefined) {

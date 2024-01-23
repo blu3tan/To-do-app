@@ -1,7 +1,8 @@
 import './main.css';
 import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
-import { refreshTags, activeTagDisplay, activeTag, activeTagSwitch } from './tag-creation';
+import { refreshTags, activeTagDisplay, activeTagSwitch } from './tag-creation';
+import { filterListByTag } from './todo-filter';
 
 let todoList = [];
 
@@ -11,10 +12,9 @@ export function todoRemove(index) {
     todoList.splice((index.index), 1);
 }
 
-export function renderTodoList() {
-    todoList.forEach(item => {
-        let index = todoList.indexOf(item);
-        // let color = tagColors[item.tag];
+export function renderTodoList(array) {
+    array.forEach(item => {
+        let index = array.indexOf(item);
         renderTodo(item, index);
     });
 }
@@ -31,6 +31,7 @@ export function renderTodoList() {
         const tagPressed = e.target.id;
         if (tagPressed == '') return;
         activeTagSwitch(tagPressed);
+        filterListByTag(tagPressed);
     })
 
     // const logo = document.querySelector('logo');
@@ -39,6 +40,6 @@ export function renderTodoList() {
     // })
 
     refreshTags();
-    activeTagDisplay('generic');
-    renderTodoList();
+    activeTagDisplay('all');
+    renderTodoList(todoList);
 })();

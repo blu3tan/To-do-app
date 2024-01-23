@@ -30,7 +30,7 @@ export function todoCreation() {
 
 function tagColorLogic() {
     if (tags.value == '') {
-        tags.value = 'generic';
+        tags.value = 'all';
     }
     if (tags.value in tagColors) return;
     else tagColors[tags.value] = randomHsl();
