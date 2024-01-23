@@ -1,10 +1,13 @@
 import { clearList } from "./clear-list";
 import { todoList } from "./index";
 
+let activeTag = 'generic';
+export { activeTag }
+
 export const tagList = ['generic'];
 
 let tagColors = {
-    'generic': 'hsl(44, 84%, 60%)',
+    'generic': 'hsl(44, 84%, 50%)',
     'sport': 'hsl(180, 70%, 42%)',
     'work': 'hsl(262, 41%, 40%)',
     'relax': 'hsl(203, 83%, 33%)',
@@ -12,6 +15,19 @@ let tagColors = {
 }
 
 export {tagColors}
+
+export function activeTagDisplay(tag) {
+    const tagPressed = document.getElementById(tag);
+    tagPressed.classList.add('pressed');
+}
+
+export function activeTagSwitch(tag) {
+    const tagPressed = document.querySelector(`#${activeTag}`)
+    tagPressed.classList.remove('pressed');
+    activeTag = tag;
+    const newTagPressed = document.querySelector(`#${tag}`);
+    newTagPressed.classList.add('pressed');
+}
 
 export function renderTagList() {
     tagList.forEach(item => {
@@ -23,6 +39,7 @@ export function refreshTags() {
     const tagContainer = document.querySelector('.tags');
     clearList(tagContainer);
     renderTagList();
+    activeTagDisplay(activeTag);
 };
 
 export function tagRemove() {

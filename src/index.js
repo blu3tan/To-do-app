@@ -1,7 +1,7 @@
 import './main.css';
 import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
-import { refreshTags } from './tag-creation';
+import { refreshTags, activeTagDisplay, activeTag, activeTagSwitch } from './tag-creation';
 
 let todoList = [];
 
@@ -26,11 +26,19 @@ export function renderTodoList() {
 
     });
 
+    const tags = document.querySelector('.tags');
+    tags.addEventListener('click', (e) => {
+        const tagPressed = e.target.id;
+        if (tagPressed == '') return;
+        activeTagSwitch(tagPressed);
+    })
+
     // const logo = document.querySelector('logo');
     // logo.addEventListener('click', () => {
 
     // })
 
     refreshTags();
+    activeTagDisplay('generic');
     renderTodoList();
 })();
