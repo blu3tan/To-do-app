@@ -420,7 +420,7 @@ label {
     transition: all 0.1s ease-in-out;
 
     &:hover {
-        background-color: var(--color-main-high);
+        filter: brightness(1.2);;
     }
     &:active {
         box-shadow: var(--box-shadow-pressed);

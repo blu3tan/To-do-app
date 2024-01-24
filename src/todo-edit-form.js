@@ -31,6 +31,8 @@ export function todoEditForm(index) {
 
         const setBtn = document.querySelector('.set-btn-txt');
         setBtn.textContent = 'SAVE';
+        const button = document.querySelector('#set-todo');
+        button.style.setProperty('background-color', bgColor);
         const formSubmit = document.getElementById('form-submit');
         formSubmit.addEventListener('submit', () => {
             checkTagEdited();
