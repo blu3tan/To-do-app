@@ -18,7 +18,7 @@ export function todoCreation() {
         let today = new Date();
         dueDate = format(today, 'yyyy-MM-dd');
     }
-    // checkTag();
+    // Helpers to avoid receiving a void tag value without forcing user to provide one
     tagColorLogic();
     tagItemLogic();
 
@@ -31,8 +31,6 @@ export function todoCreation() {
     refreshTags();
 }
 
-//helper module functions 
-
 function tagColorLogic() {
     if (tags.value == '') {
         tags.value = 'all';
@@ -40,7 +38,8 @@ function tagColorLogic() {
     if (tags.value in tagColors) return;
     else tagColors[tags.value] = randomHsl();
 }
-function tagItemLogic() {
+
+export function tagItemLogic() {
     if (tagList.includes(tags.value)) return;
     else tagList.push(tags.value);
 }

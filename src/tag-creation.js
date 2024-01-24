@@ -1,6 +1,7 @@
 import { clearList } from "./clear-list";
 import { todoList } from "./index";
 
+// Shared object to control the state of the selected tag
 let activeTag = 'all';
 export { activeTag }
 

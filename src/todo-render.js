@@ -1,4 +1,4 @@
-import { todoRemove, renderTodoList, todoList } from "./index";
+import { todoRemove} from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
 import { tagColors, tagRemove, refreshTags, activeTag } from "./tag-creation";

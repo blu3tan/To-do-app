@@ -7,11 +7,10 @@ export function todoEdit(index) {
     const priority = document.getElementById('priority');
     const description = document.getElementById('description');
     const tags = document.getElementById('tags');
-
+    
     object.title = title.value;
     object.dueDate = dueDate.value;
     object.priority = priority.value;
     object.description = description.value;
     object.tag = tags.value; 
-
 }

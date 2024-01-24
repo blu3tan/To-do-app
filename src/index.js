@@ -21,6 +21,7 @@ export function renderTodoList(array) {
 
 (function() {
     // select the tag container and toggle a class to prevent click on tags while the form is open
+    // all to avoid creating ulterior logic
     const tagContainer = document.querySelector('.tags');
     const addBtn = document.querySelector('.add-btn');
     addBtn.addEventListener('click', () => {
