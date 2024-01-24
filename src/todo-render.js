@@ -47,9 +47,17 @@ export function renderTodo(item, index) {
     todoItem.append(title, editButton, date, stroke);
     todoContainer.appendChild(todoItem);
 
+    const done = item.done;
+    if (done == true) {
+        stroke.classList.toggle('visible');
+        editButton.classList.toggle('hide');
+        flagIcon.classList.toggle('checked');
+    }
+
     const tagContainer = document.querySelector('.tags');
     todoItem.addEventListener('click', (e)=> {
         if (e.target.matches('.flag-icon')) {
+            item.toggle();
             stroke.classList.toggle('visible');
             editButton.classList.toggle('hide');
             flagIcon.classList.toggle('checked');

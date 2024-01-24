@@ -6,5 +6,10 @@ export class todoObject {
         this.dueDate = dueDate;
         this.priority = priority;
         this.tag = tag;
+        this.done = false;
     }
+}
+
+todoObject.prototype.toggle = function() {
+    this.done = !this.done;
 }
