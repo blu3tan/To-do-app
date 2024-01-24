@@ -55,8 +55,6 @@ function fillFormFromArray() {
     const description = document.getElementById('description');
     const tags = document.getElementById('tags');
 
-    console.log(object.dueDate);
-
     title.value = object.title;
     dueDate.value = object.dueDate;
     priority.value = object.priority;

@@ -52,6 +52,7 @@ export function tagRemove() {
             tagList.splice((index), 1);
             const tagItem = document.querySelector(`#${tag}`);
             tagItem.setAttribute('hide', '');
+            activeTag = 'all'
             }
         }
     })

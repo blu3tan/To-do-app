@@ -1,8 +1,9 @@
 import { todoRemove, renderTodoList, todoList } from "./index";
 import { clearList } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
-import { tagColors, tagRemove, refreshTags } from "./tag-creation";
+import { tagColors, tagRemove, refreshTags, activeTag } from "./tag-creation";
 import { format } from "date-fns";
+import { filterListByTag } from "./todo-filter";
 
 
 export function renderTodo(item, index) {
@@ -64,7 +65,7 @@ export function renderTodo(item, index) {
             }, 350)
             setTimeout(() => {
                 clearList(todoContainer);
-                renderTodoList(todoList);
+                filterListByTag(activeTag);
             }, 400)
         }
         else if (e.target.matches('.edit-btn')) {

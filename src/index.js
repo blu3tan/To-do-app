@@ -29,8 +29,7 @@ export function renderTodoList(array) {
 
     });
 
-    const tags = document.querySelector('.tags');
-    tags.addEventListener('click', (e) => {
+    tagContainer.addEventListener('click', (e) => {
         const tagPressed = e.target.id;
         if (tagPressed == '') return;
         activeTagSwitch(tagPressed);
