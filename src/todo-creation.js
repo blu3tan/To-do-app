@@ -4,6 +4,7 @@ import { renderTodo } from "./todo-render";
 import { tagColors } from "./tag-creation";
 import { randomHsl } from "./random-color";
 import { tagList, refreshTags } from "./tag-creation";
+import { storeTodo, storeTags, storeColors } from "./local-storage";
 import { format } from "date-fns"
 
 export function todoCreation() {
@@ -24,6 +25,7 @@ export function todoCreation() {
 
     let todoItem = new todoObject(title, description, dueDate, priority, tags)
     todoList.push(todoItem);
+    storeTodo();
     const index = todoList.indexOf(todoItem);
     
     renderTodo(todoItem, index);
@@ -37,9 +39,11 @@ function tagColorLogic() {
     }
     if (tags.value in tagColors) return;
     else tagColors[tags.value] = randomHsl();
+    storeColors();
 }
 
 export function tagItemLogic() {
     if (tagList.includes(tags.value)) return;
     else tagList.push(tags.value);
+    storeTags();
 }

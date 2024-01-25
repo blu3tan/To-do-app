@@ -4,6 +4,7 @@ import { todoEditForm } from "./todo-edit-form";
 import { tagColors, tagRemove, refreshTags, activeTag } from "./tag-creation";
 import { format } from "date-fns";
 import { filterListByTag } from "./todo-filter";
+import { storeTodo } from "./local-storage";
 
 
 export function renderTodo(item, index) {
@@ -58,6 +59,7 @@ export function renderTodo(item, index) {
     todoItem.addEventListener('click', (e)=> {
         if (e.target.matches('.flag-icon')) {
             item.toggle();
+            storeTodo();
             stroke.classList.toggle('visible');
             editButton.classList.toggle('hide');
             flagIcon.classList.toggle('checked');

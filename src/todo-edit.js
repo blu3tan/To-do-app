@@ -1,4 +1,5 @@
 import { todoList } from "./index";
+import { storeTodo } from "./local-storage";
 
 export function todoEdit(index) {
     const object = todoList[index];
@@ -12,5 +13,6 @@ export function todoEdit(index) {
     object.dueDate = dueDate.value;
     object.priority = priority.value;
     object.description = description.value;
-    object.tag = tags.value; 
+    object.tag = tags.value;
+    storeTodo();
 }

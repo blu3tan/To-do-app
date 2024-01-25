@@ -1,5 +1,6 @@
 import { clearList } from "./clear-list";
 import { todoList } from "./index";
+import { storeTags } from "./local-storage";
 
 // Shared object to control the state of the selected tag
 let activeTag = 'all';
@@ -51,6 +52,7 @@ export function tagRemove() {
         if (tagPresence == undefined) {
             let index = tagList.indexOf(tag);
             tagList.splice((index), 1);
+            storeTags();
             const tagItem = document.querySelector(`#${tag}`);
             tagItem.setAttribute('hide', '');
             activeTag = 'all'

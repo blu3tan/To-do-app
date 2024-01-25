@@ -3,6 +3,7 @@ import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
 import { refreshTags, activeTagDisplay, activeTagSwitch } from './tag-creation';
 import { filterListByTag } from './todo-filter';
+import { storeTodo } from './local-storage';
 
 let todoList = [];
 
@@ -10,6 +11,7 @@ export {todoList}
 
 export function todoRemove(index) {
     todoList.splice((index.index), 1);
+    storeTodo();
 }
 
 export function renderTodoList(array) {
