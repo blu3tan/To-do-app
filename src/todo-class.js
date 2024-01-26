@@ -8,6 +8,7 @@ export class todoObject {
         this.tag = tag;
         this.done = false;
     }
+
 }
 
 todoObject.prototype.toggle = function() {

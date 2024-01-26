@@ -1,20 +1,14 @@
 import { clearList } from "./clear-list";
 import { todoList } from "./index";
-import { storeTags } from "./local-storage";
+import { storeTags, loadTagsFromStorage, loadColorsFromStorage } from "./local-storage";
 
 // Shared object to control the state of the selected tag
 let activeTag = 'all';
 export { activeTag }
 
-export const tagList = ['all'];
+export const tagList = loadTagsFromStorage();
 
-let tagColors = {
-    'all': 'hsl(44, 84%, 50%)',
-    'sport': 'hsl(180, 70%, 42%)',
-    'work': 'hsl(262, 41%, 40%)',
-    'relax': 'hsl(203, 83%, 33%)',
-    'family': 'hsl(11, 77%, 57%)',
-}
+let tagColors = loadColorsFromStorage();
 
 export {tagColors}
 

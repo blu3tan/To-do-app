@@ -1,11 +1,11 @@
 import './main.css';
 import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
-import { refreshTags, activeTagDisplay, activeTagSwitch } from './tag-creation';
+import { refreshTags, activeTagDisplay, activeTagSwitch, tagRemove } from './tag-creation';
 import { filterListByTag } from './todo-filter';
-import { storeTodo } from './local-storage';
+import { storeTodo, loadTodoFromStorage, loadColorsFromStorage, loadTagsFromStorage } from './local-storage';
 
-let todoList = [];
+let todoList = loadTodoFromStorage();
 
 export {todoList}
 
@@ -43,7 +43,8 @@ export function renderTodoList(array) {
     // logo.addEventListener('click', () => {
 
     // })
-
+    // localStorage.clear();
+    tagRemove();
     refreshTags();
     activeTagDisplay('all');
     renderTodoList(todoList);

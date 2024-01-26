@@ -7,6 +7,7 @@ import { renderTodo } from "./todo-render";
 import { tagColors, tagRemove, refreshTags } from "./tag-creation";
 import { randomHsl } from "./random-color";
 import { tagItemLogic } from "./todo-creation";
+import { storeColors } from "./local-storage";
 
 
 let indexOut;
@@ -81,6 +82,9 @@ function checkTagEdited() {
             tags.value = 'all';
         }
         if (tags.value in tagColors) return;
-        else tagColors[tags.value] = randomHsl();
+        else {
+            tagColors[tags.value] = randomHsl();
+            storeColors();
+        }
     }
 }
