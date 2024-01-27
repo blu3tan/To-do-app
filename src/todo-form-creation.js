@@ -4,6 +4,7 @@ import { status } from './form-status';
 
 const plus = document.querySelector('.plus');
 const todoContainer = document.querySelector('.todos');
+const logo = document.querySelector('.logo');
 
 
 export function todoFormCreation() {
@@ -16,6 +17,7 @@ export function todoFormCreation() {
             todoCreation();
             closeForm();
             tagContainer.classList.toggle('block');
+            logo.classList.toggle('prevent');
         })
         setTimeout(() => {
             plus.classList.add('open');

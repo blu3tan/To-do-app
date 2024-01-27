@@ -6,9 +6,11 @@ import { filterListByTag } from './todo-filter';
 import { storeTodo, loadTodoFromStorage} from './local-storage';
 import { guideForm } from './guide-form';
 
-let todoList = loadTodoFromStorage();
+export let todoList = loadTodoFromStorage();
 
-export {todoList}
+export function resetTodoList() {
+    todoList = loadTodoFromStorage();
+}
 
 export function todoRemove(index) {
     todoList.splice((index.index), 1);

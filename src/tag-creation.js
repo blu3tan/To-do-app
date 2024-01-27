@@ -3,14 +3,14 @@ import { todoList } from "./index";
 import { storeTags, loadTagsFromStorage, loadColorsFromStorage } from "./local-storage";
 
 // Shared object to control the state of the selected tag
-let activeTag = 'all';
-export { activeTag }
+export let activeTag = 'all';
+export let tagList = loadTagsFromStorage();
+export let tagColors = loadColorsFromStorage();
 
-export const tagList = loadTagsFromStorage();
-
-let tagColors = loadColorsFromStorage();
-
-export {tagColors}
+export function resetTags() {
+    tagList = loadTagsFromStorage();
+    tagColors = loadColorsFromStorage();
+}
 
 export function activeTagDisplay(tag) {
     const tagPressed = document.getElementById(tag);

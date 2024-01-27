@@ -33,14 +33,6 @@ export function loadTagsFromStorage() {
         const storedTags = JSON.parse(localStorage.getItem('tagListLocal'));
         return [...storedTags];
     }
-
-    // const storedTags = JSON.parse(localStorage.getItem('tagListLocal'));
-    // console.log('tagColors');
-    // console.log(storedTags);
-    // storedTags.forEach((tag) => {
-    //     if (tagList.includes(tag)) return;
-    //     else tagList.push(tag);
-    // })
 }
 
 export function loadColorsFromStorage() {
