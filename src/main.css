@@ -3,7 +3,6 @@
 
 :root {
     --color-main: hsl(355, 74%, 56%);
-    --color-main-high: hsl(355, 100%, 64%);
     --color-body: hsl(0, 0%, 65%);
     --color-tags-all: hsl(44, 84%, 60%);
     --border-radius: 0.4rem;
@@ -18,12 +17,10 @@
     box-sizing: border-box;
 }
 * {
-    /* border: solid 1px magenta; */
     margin: 0;
     padding: 0;
 }
 body {
-    /* line-height: 1.5; */
     font-family: 'Rubik', sans-serif;
     -webkit-font-smoothing: antialiased;
     height: 100dvh;
@@ -86,7 +83,7 @@ span {
     box-shadow: var(--box-shadow);
 
     &:hover {
-        background-color: var(--color-main-high);
+        filter: brightness(1.1);
     }
     &:active {
         box-shadow: var(--box-shadow-pressed);
@@ -124,7 +121,7 @@ span {
 .tags {
     position: relative;
     display: flex;
-    /* overflow-x: auto; */
+    overflow-x: scroll;
     justify-content: flex-start;
     align-items: center;
     color: #fff;
@@ -139,7 +136,7 @@ span {
 .tag-item {
     position: relative;
     z-index: 5;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     user-select: none;
@@ -154,7 +151,7 @@ span {
     transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
-        filter: brightness(1.2);
+        filter: brightness(1.1);
     }
     &:active {
         box-shadow: var(--box-shadow-pressed);
@@ -162,14 +159,13 @@ span {
 }
 
 .tag-item[hide] {
-    position: relative;
     z-index: 0;
     transform: translateX(-100%);
     opacity: 0;
 }
 .tag-item.pressed {
     box-shadow: var(--box-shadow-pressed);
-    /* filter: brightness(1.2); */
+    filter: brightness(1.1);
 }
 
  /********************* Todo container *********************/

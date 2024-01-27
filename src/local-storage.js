@@ -53,7 +53,6 @@ export function loadColorsFromStorage() {
     };
     else {
         const colors = JSON.parse(localStorage.getItem('tagColorsLocal'));
-        console.log(colors);
         return colors;
     }
 }
