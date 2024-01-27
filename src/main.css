@@ -75,6 +75,7 @@ span {
 .add-btn {
     min-width: 100px;
     height: 100%;
+    cursor: pointer;
     border-radius: var(--border-radius);
     padding: 1rem;
     background-color: var(--color-main) ;
@@ -91,7 +92,6 @@ span {
 }
 
 .add-btn {
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,7 +101,8 @@ span {
 
 }
 
-.add-btn.prevent {
+.add-btn.prevent,
+.logo.prevent {
     pointer-events: none;
 }
 
@@ -126,7 +127,6 @@ span {
     align-items: center;
     color: #fff;
     gap: 1rem;
-    /* margin-bottom: 1rem; */
 }
 
 .tags.block {
@@ -136,10 +136,9 @@ span {
 .tag-item {
     position: relative;
     z-index: 5;
-    /* overflow: hidden; */
+    user-select: none;
     display: flex;
     justify-content: center;
-    user-select: none;
     align-items: center;
     border-radius: var(--border-radius);
     padding: 0.5rem;
@@ -148,7 +147,9 @@ span {
     font-weight: 800;
     transition: all 0.1s ease-in-out;
     box-shadow: var(--box-shadow);
-    transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: opacity 0.15s ease-in-out, 
+                transform 0.3s ease-in-out, 
+                box-shadow 0.2s ease-in-out;
 
     &:hover {
         filter: brightness(1.1);
@@ -331,6 +332,7 @@ div.edit-btn {
 
 .form-todo {
     z-index: 10;
+    opacity: 0;
     position: absolute;
     overflow: hidden;
     display: grid;
@@ -338,11 +340,13 @@ div.edit-btn {
     background-color: var(--color-main);
     width: 100%;
     height: 0%;
-    transition: height 0.2s ease-in;
+    transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-.form-todo.open {
+.form-todo.open,
+.form-guide.open {
     height: 100%;
+    opacity: 1;
 }
 
 .form-fields {
@@ -423,6 +427,34 @@ label {
     }
 }
 
-.form-todo.open.closed {
-    height: 0;
+.form-todo.open.closed,
+.form-guide.open.closed {
+    height: 0%;
+    opacity: 0;
+}
+
+/********************* Guide container *********************/
+
+.form-guide {
+    z-index: 10;
+    position: absolute;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-radius: var(--border-radius);
+    background-color: var(--color-main);
+    padding: 2rem;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out; 
+}
+
+.guide-header {
+    grid-column-start: span 2;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background-color: #fff;
 }

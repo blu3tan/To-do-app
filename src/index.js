@@ -3,7 +3,8 @@ import { renderTodo } from './todo-render';
 import { todoFormCreation } from './todo-form-creation';
 import { refreshTags, activeTagDisplay, activeTagSwitch, tagRemove } from './tag-creation';
 import { filterListByTag } from './todo-filter';
-import { storeTodo, loadTodoFromStorage, loadColorsFromStorage, loadTagsFromStorage } from './local-storage';
+import { storeTodo, loadTodoFromStorage} from './local-storage';
+import { guideForm } from './guide-form';
 
 let todoList = loadTodoFromStorage();
 
@@ -21,15 +22,18 @@ export function renderTodoList(array) {
     });
 }
 
+const logo = document.querySelector('.logo');
+const tagContainer = document.querySelector('.tags');
+const addBtn = document.querySelector('.add-btn');
+
 (function() {
     // select the tag container and toggle a class to prevent click on tags while the form is open
     // all to avoid creating ulterior logic
-    const tagContainer = document.querySelector('.tags');
-    const addBtn = document.querySelector('.add-btn');
+
     addBtn.addEventListener('click', () => {
         todoFormCreation();
         tagContainer.classList.toggle('block');
-
+        logo.classList.toggle('prevent');
     });
 
     tagContainer.addEventListener('click', (e) => {
@@ -39,10 +43,12 @@ export function renderTodoList(array) {
         filterListByTag(tagPressed);
     })
 
-    // const logo = document.querySelector('logo');
-    // logo.addEventListener('click', () => {
+    logo.addEventListener('click', () => {
+        guideForm();
+        tagContainer.classList.toggle('block');
+        addBtn.classList.toggle('prevent');
+    })
 
-    // })
     // localStorage.clear();
     tagRemove();
     refreshTags();
