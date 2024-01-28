@@ -34,12 +34,12 @@ export function formStructure() {
         // used the innerHtml way to generate the form just to simplify the dom manipulation
     // this is due to the way i have designed the form element 
     const formMarkup =  `<form action="#" method="dialog" class="form-fields" id="form-submit">
-    <div class="form-row"><label for="title">What?</label><input id="title" name="title" type="text" maxlength="20" placeholder="Title" required autofocus></div>
-    <div class="form-row"><label for="due-date">When?</label><input type="date" id="date" name="due-date"/></div>
-    <div class="form-row"><label for="priority">Priority</label><select id="priority" name="priority"><option value="low">Low</option><option value="med">Med</option><option value="high">High</option></select></div>
+    <div class="form-row todo-title"><label for="title">What?</label><input id="title" name="title" type="text" maxlength="15" placeholder="Title" required autofocus></div>
+    <div class="form-row todo-date"><label for="due-date">When?</label><input type="date" id="date" name="due-date"/></div>
+    <div class="form-row todo-priority"><label for="priority">Priority</label><select id="priority" name="priority"><option value="low">Low</option><option value="med">Med</option><option value="high">High</option></select></div>
     <div class="form-row area"><label for="description">How?</label>
     <textarea id="description" name="description" maxlength="200"></textarea></div>
-    <div class="form-row"><label for="tags">Tag</label><input id="tags" name="tags" type="text" maxlength="10" placeholder="All" value="all"></div><div class="form-row"><label for="todoBtn" class="todoLabel">_</label><button id="set-todo" type="submit" class="set-btn" name="todoBtn">
+    <div class="form-row todo-tags"><label for="tags">Tag</label><input id="tags" name="tags" type="text" maxlength="10" placeholder="All" value="all"></div><div class="form-row todo-button"><label for="todoBtn" class="todoLabel">_</label><button id="set-todo" type="submit" class="set-btn" name="todoBtn">
     <span class="set-btn-txt">SET&nbsp;&nbsp;TODO</span></button></div></form>`
 
     const form = document.createElement('div');
