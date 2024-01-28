@@ -2,7 +2,7 @@
 
 <div align="center">
 <a href="https://blu3tan.github.io/To-do-app/">
-<img src="./assets/todo-showcase.gif">
+<img src=".src/assets/todo-showcase.gif">
 </a>
 
 "Mini" TODO app developed for the Odin Project Javascript curriculum
