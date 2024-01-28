@@ -8,6 +8,7 @@ import { clearTodos } from "./clear-list";
 export function guideForm() {
     const todoContainer = document.querySelector('.todos');
     const addBtn = document.querySelector('.add-btn');
+    const tagContainer = document.querySelector('.tags');
     const addForm = guideMarkup();
 
     addForm.addEventListener('click', (e) => {
@@ -22,6 +23,7 @@ export function guideForm() {
             renderTodoList(todoList);
             setTimeout(() => {
                 closeGuide();
+                tagContainer.classList.toggle('block');
                 addBtn.classList.toggle('prevent');
             }, 100)
         }

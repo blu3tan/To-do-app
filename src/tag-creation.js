@@ -10,6 +10,7 @@ export let tagList = loadTagsFromStorage();
 export let tagColors = loadColorsFromStorage();
 
 export function resetTags() {
+    activeTag = 'all';
     tagList = loadTagsFromStorage();
     tagColors = loadColorsFromStorage();
 }
