@@ -15,13 +15,6 @@ export function guideForm() {
     addForm.addEventListener('click', (e) => {
         if (e.target.matches('.reset-btn')) {
             generalReset();
-            // localStorage.clear();
-            // resetTodoList();
-            // clearTodos();
-            // resetTags();
-            // tagRemove();
-            // refreshTags();
-            // activeTagDisplay('all');
             renderTodoList(todoList);
             setTimeout(() => {
                 closeGuide();

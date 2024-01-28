@@ -174,7 +174,7 @@ span {
     border-radius: var(--border-radius);
     color: #fff;
     gap: 1rem;
-    overflow-y: scroll;
+    overflow: overlay;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(206, 206, 206, 0.3) -3px -3px 6px 1px inset;
 }
 
@@ -313,10 +313,6 @@ div.edit-btn {
     &:hover {
         font-size: 3.5rem;
     }
-}
-
-.todo-item .title {
-    justify-content: flex-start;
 }
 
 .todo-item .date {
@@ -509,11 +505,11 @@ label {
 
 /********************* Media queries *********************/
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .container {
         padding: 1rem;
         width: 90%;
-        height: 90%;
+        height: 95dvh;
     }
 
     div.edit-btn {
@@ -603,5 +599,15 @@ label {
 
     .button-container {
         gap: 1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .todo-item .title {
+        justify-content: flex-start;
+        white-space: nowrap;
+        max-width: 100px;
+        overflow:hidden;
+        text-overflow: clip;
     }
 }

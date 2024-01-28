@@ -1,7 +1,7 @@
 import { todoRemove} from "./index";
 import { clearTodos } from "./clear-list";
 import { todoEditForm } from "./todo-edit-form";
-import { tagColors, tagRemove, refreshTags, activeTag } from "./tag-creation";
+import { tagColors, tagRemove, activeTag } from "./tag-creation";
 import { format } from "date-fns";
 import { filterListByTag } from "./todo-filter";
 import { storeTodo } from "./local-storage";
@@ -71,7 +71,6 @@ export function renderTodo(item, index) {
             setTimeout(() => {
                 todoItem.remove();
                 tagRemove();
-                // refreshTags();
             }, 350)
             setTimeout(() => {
                 clearTodos();

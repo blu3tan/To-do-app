@@ -17,6 +17,10 @@ export function loadTodoFromStorage() {
     else {
         let list = [...JSON.parse(localStorage.getItem('todoListLocal'))];
         list.forEach((item) => {
+            // the toggle method is inherited from the class object
+            // it was added as method inside the class but local storage doesn't
+            // allow functions parsing so is attached here to every todo
+            // recovered from storage
             item.toggle = function() {
                 this.done = !this.done;
             }
