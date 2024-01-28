@@ -6,7 +6,6 @@ const plus = document.querySelector('.plus');
 const todoContainer = document.querySelector('.todos');
 const logo = document.querySelector('.logo');
 
-
 export function todoFormCreation() {
     const tagContainer = document.querySelector('.tags');
     const addForm = formStructure();
