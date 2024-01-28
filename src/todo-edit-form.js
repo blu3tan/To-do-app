@@ -9,14 +9,13 @@ import { randomHsl } from "./random-color";
 import { tagItemLogic } from "./todo-creation";
 import { storeColors } from "./local-storage";
 
-
-let indexOut;
+let indexOut; // module scoped variable that contains the index passed from the todo creation
 let previousTag;
 
 export function todoEditForm(index) {
     indexOut = index;
     const todoObject = todoList[index];
-    const bgColor = tagColors[todoObject.tag];
+    const bgColor = tagColors[todoObject.tag]; // link the tag color with the todo color
     const todoDomItem = document.querySelector(`.todo-item[data-index = '${index}' ]`);
     const tagContainer = document.querySelector('.tags');
     const todoContainer = document.querySelector('.todos');
@@ -74,7 +73,7 @@ function fillFormFromArray() {
     previousTag = tags.value;
 }
 
-// On changing tag prevent the lack of a bg color
+// when changing tag prevent the lack of a bg color
 function checkTagEdited() {
     const tags = document.getElementById('tags');
     if (tags.value !== previousTag) {

@@ -6,6 +6,8 @@ import { filterListByTag } from './todo-filter';
 import { storeTodo, loadTodoFromStorage} from './local-storage';
 import { guideForm } from './guide-form';
 
+// the todo list is populated each time from the storage only if
+// there is something stored
 export let todoList = loadTodoFromStorage();
 
 export function resetTodoList() {

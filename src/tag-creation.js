@@ -2,8 +2,10 @@ import { clearList } from "./clear-list";
 import { todoList } from "./index";
 import { storeTags, loadTagsFromStorage, loadColorsFromStorage } from "./local-storage";
 
-// Shared object to control the state of the selected tag
+// Shared variable to control the state of the selected tag
 export let activeTag = 'all';
+
+// tags and colors are pulled from storage if storage is not empty
 export let tagList = loadTagsFromStorage();
 export let tagColors = loadColorsFromStorage();
 
@@ -12,11 +14,12 @@ export function resetTags() {
     tagColors = loadColorsFromStorage();
 }
 
+// this 2 functions control the logic of tag appearance
+// when user selects one tag the one selected before must appear not pressed
 export function activeTagDisplay(tag) {
     const tagPressed = document.getElementById(tag);
     tagPressed.classList.add('pressed');
 }
-
 export function activeTagSwitch(tag) {
     const tagPressed = document.querySelector(`#${activeTag}`)
     tagPressed.classList.remove('pressed');
@@ -24,6 +27,7 @@ export function activeTagSwitch(tag) {
     const newTagPressed = document.querySelector(`#${tag}`);
     newTagPressed.classList.add('pressed');
 }
+
 
 export function renderTagList() {
     tagList.forEach(item => {

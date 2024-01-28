@@ -4,6 +4,7 @@ import { renderTodoList, todoList, resetTodoList } from "./index";
 import { resetTags } from "./tag-creation";
 import { clearTodos } from "./clear-list";
 
+// Generates the guide panel with the demo and reset buttons
 export function guideForm() {
     const todoContainer = document.querySelector('.todos');
     const addBtn = document.querySelector('.add-btn');

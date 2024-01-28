@@ -5,11 +5,9 @@ import { tagColors, tagList } from "./tag-creation";
 export function storeTodo() {
     localStorage.setItem('todoListLocal', JSON.stringify(todoList));
 }
-
 export function storeTags() {
     localStorage.setItem('tagListLocal', JSON.stringify(tagList));
 }
-
 export function storeColors() {
     localStorage.setItem('tagColorsLocal', JSON.stringify(tagColors));
 }
