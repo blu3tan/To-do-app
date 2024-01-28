@@ -53,7 +53,6 @@ const addBtn = document.querySelector('.add-btn');
         addBtn.classList.toggle('prevent');
     })
 
-    // localStorage.clear();
     tagRemove();
     refreshTags();
     activeTagDisplay('all');

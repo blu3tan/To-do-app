@@ -145,11 +145,9 @@ span {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 800;
-    transition: all 0.1s ease-in-out;
+    /* transition: all 0.1s ease-in-out; */
     box-shadow: var(--box-shadow);
-    transition: opacity 0.15s ease-in-out, 
-                transform 0.3s ease-in-out, 
-                box-shadow 0.2s ease-in-out;
+    transition: opacity 0.15s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
         filter: brightness(1.1);

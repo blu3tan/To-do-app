@@ -71,7 +71,7 @@ export function renderTodo(item, index) {
             setTimeout(() => {
                 todoItem.remove();
                 tagRemove();
-                refreshTags();
+                // refreshTags();
             }, 350)
             setTimeout(() => {
                 clearList(todoContainer);

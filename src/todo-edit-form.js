@@ -1,13 +1,13 @@
-import {todoList} from "./index";
+import {todoList, renderTodoList} from "./index";
 import { formStructure } from "./todo-form-creation";
 import { closeForm } from './todo-form-close'
 import { status } from './form-status';
 import { todoEdit } from "./todo-edit";
-import { renderTodo } from "./todo-render";
 import { tagColors, tagRemove, refreshTags } from "./tag-creation";
 import { randomHsl } from "./random-color";
 import { tagItemLogic } from "./todo-creation";
 import { storeColors } from "./local-storage";
+import { clearTodos } from "./clear-list";
 
 let indexOut; // module scoped variable that contains the index passed from the todo creation
 let previousTag;
@@ -39,7 +39,8 @@ export function todoEditForm(index) {
             tagItemLogic();
             todoEdit(index);
             todoDomItem.remove();
-            renderTodo(todoObject, index);
+            clearTodos();
+            renderTodoList(todoList);
             tagRemove();
             refreshTags();
             closeForm();

@@ -3,6 +3,7 @@ import { tagRemove, refreshTags, activeTagDisplay } from "./tag-creation";
 import { renderTodoList, todoList, resetTodoList } from "./index";
 import { resetTags } from "./tag-creation";
 import { clearTodos } from "./clear-list";
+import { demoContent } from './demo-content';
 
 // Generates the guide panel with the demo and reset buttons
 export function guideForm() {
@@ -13,14 +14,24 @@ export function guideForm() {
 
     addForm.addEventListener('click', (e) => {
         if (e.target.matches('.reset-btn')) {
-            localStorage.clear();
-            resetTodoList();
-            clearTodos();
-            resetTags();
-            tagRemove();
-            refreshTags();
-            activeTagDisplay('all');
+            generalReset();
+            // localStorage.clear();
+            // resetTodoList();
+            // clearTodos();
+            // resetTags();
+            // tagRemove();
+            // refreshTags();
+            // activeTagDisplay('all');
             renderTodoList(todoList);
+            setTimeout(() => {
+                closeGuide();
+                tagContainer.classList.toggle('block');
+                addBtn.classList.toggle('prevent');
+            }, 100)
+        }
+        else if (e.target.matches('.demo-btn')) {
+            generalReset();
+            demoContent();
             setTimeout(() => {
                 closeGuide();
                 tagContainer.classList.toggle('block');
@@ -67,4 +78,14 @@ function closeGuide() {
     setTimeout(() => {
         formOpen.remove();
     }, 250);
+}
+
+function generalReset() {
+    localStorage.clear();
+    resetTodoList();
+    clearTodos();
+    resetTags();
+    tagRemove();
+    refreshTags();
+    activeTagDisplay('all');
 }
