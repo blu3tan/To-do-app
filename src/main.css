@@ -126,6 +126,7 @@ span {
     align-items: center;
     color: #fff;
     gap: 1rem;
+    min-height: 70px;
 }
 
 .tags.block {
